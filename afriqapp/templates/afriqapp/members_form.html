@@ -1,0 +1,25 @@
+{% extends 'afriqapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add member{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div clas="col-sm-6">
+                <div class="card card-body">
+                    <h3 class="text-capitalize">add member</h3>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form|crispy}}
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

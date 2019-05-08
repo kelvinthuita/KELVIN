@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<div class="container">
+<div class="row">
+
+    {%if contacts%}
+        {%for contact in contacts%}
+        <div class="col-sm-3">
+        <div class="card">
+
+            <img src="{{contact.cover.url}}" class="img img-responsive" style="height: 150px;" alt="">
+            <div class="card-header" style="background-color: {% if contact.is_male %}blue; {%else%}red; {%endif%}">
+                <i class="fas {%if contact.is_male%}fa-mars {%else%}fa-venus {%endif%}"></i>&nbsp;
+                {{ contact.name }}
+
+            </div>
+
+            <div class="card-body">
+                <div class="card-header" style="color: {% if contact.is_male %}blue; {%else%}red; {%endif%}">
+
+                <p><i class="fas fa-envelope"></i>&nbsp {{ contact.email }}</p>
+                <p><i class="fas fa-phone"></i>&nbsp {{contact.telephone}}</p>
+                <p><i class="fas fa-user-circle"></i>&nbsp {{contact.relation}}</p>
+
+                <a href="{% url 'phonebook:update-contact' contact.id %}" class="btn btn-info btn-sm" ><i class="fas fa-edit"></i></a>
+                <a href="" class="btn btn-danger btn-sm" ><i class="fas fa-edit"></i></a>
+
+
+
+
+
+            </div>
+
+        </div>
+        </div>
+        </div>
+        {%endfor%}
+
+
+
+
+
+    {%endif%}
+
+</div>
+
+</div>
+
