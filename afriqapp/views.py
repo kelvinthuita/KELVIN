@@ -13,10 +13,10 @@ class MemberListview(ListView):
     odering = ['name']
     def get_queryset(self):
         query = self.request.GET.get('q')
-            if query:
-                return Members.objects.filter(name__icontains=query)
-            else:
-                return  Members.objects.all()
+        if query:
+            return Members.objects.filter(name__icontains=query)
+        else:
+            return  Members.objects.all()
 
 class MembersCreateView(CreateView):
         model = Members
